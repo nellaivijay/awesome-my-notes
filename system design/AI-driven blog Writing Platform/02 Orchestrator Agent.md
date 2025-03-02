@@ -9,17 +9,22 @@ pip install langchain pika
 ```
 
 ### Sample Code Implementation
+Here’s the improved code with added enhancements for better structure, logging, error handling, and design refinements:
 
 ```python
-import pika
 import time
 from langchain.llms import OpenAI
+
+# Set up a logger for better tracking of the process
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Define the agents as simple classes for demonstration purposes
 class ResearchAgent:
     def gather_research(self, topic):
-        # Simulate gathering research data
-        print(f"ResearchAgent: Gathering research data for {topic}...")
+        logging.info(f"ResearchAgent: Gathering research data for {topic}...")
         time.sleep(2)  # Simulate delay
         return f"Research data for {topic}"
 
@@ -28,51 +33,48 @@ class WritingAgent:
         # Simulate content generation using an LLM
         llm = OpenAI(model="text-davinci-002")
         prompt = f"Write an academic blog post based on the following research: {research_data}"
-        print("WritingAgent: Generating content...")
+        logging.info("WritingAgent: Generating content...")
         content = llm(prompt)  # Call to LLM
         return content
 
 class EditingAgent:
     def edit_content(self, draft):
-        # Simulate editing content
-        print("EditingAgent: Refining content...")
+        logging.info("EditingAgent: Refining content...")
         time.sleep(1)  # Simulate editing process
         return f"Edited version of: {draft}"
 
 class SEOAgent:
     def optimize_content(self, content):
-        # Simulate SEO optimization
-        print("SEOAgent: Optimizing content for SEO...")
+        logging.info("SEOAgent: Optimizing content for SEO...")
         time.sleep(1)  # Simulate optimization process
         return f"SEO optimized version of: {content}"
 
 class ProxyAgent:
     def receive_content(self, content):
-        print(f"ProxyAgent: Passing content to human review... Content: {content}")
+        logging.info(f"ProxyAgent: Passing content to human review... Content: {content}")
 
 class OrchestratorAgent:
-    def __init__(self, research_agent, writing_agent, editing_agent, seo_agent, proxy_agent):
-        self.research_agent = research_agent
-        self.writing_agent = writing_agent
-        self.editing_agent = editing_agent
-        self.seo_agent = seo_agent
-        self.proxy_agent = proxy_agent
+    def __init__(self, agents):
+        self.agents = agents
 
     def create_blog_post(self, topic):
-        # Step 1: Gather research
-        research_data = self.research_agent.gather_research(topic)
+        try:
+            # Step 1: Gather research
+            research_data = self.agents['research'].gather_research(topic)
 
-        # Step 2: Generate content
-        content = self.writing_agent.generate_content(research_data)
+            # Step 2: Generate content
+            content = self.agents['writing'].generate_content(research_data)
 
-        # Step 3: Edit content
-        edited_content = self.editing_agent.edit_content(content)
+            # Step 3: Edit content
+            edited_content = self.agents['editing'].edit_content(content)
 
-        # Step 4: Optimize SEO
-        seo_content = self.seo_agent.optimize_content(edited_content)
+            # Step 4: Optimize SEO
+            seo_content = self.agents['seo'].optimize_content(edited_content)
 
-        # Step 5: Pass to Proxy for human review
-        self.proxy_agent.receive_content(seo_content)
+            # Step 5: Pass to Proxy for human review
+            self.agents['proxy'].receive_content(seo_content)
+        except Exception as e:
+            logging.error(f"OrchestratorAgent: Error occurred - {e}")
 
 # Main execution
 if __name__ == "__main__":
@@ -83,8 +85,16 @@ if __name__ == "__main__":
     seo_agent = SEOAgent()
     proxy_agent = ProxyAgent()
 
+    agents = {
+        'research': research_agent,
+        'writing': writing_agent,
+        'editing': editing_agent,
+        'seo': seo_agent,
+        'proxy': proxy_agent
+    }
+
     # Initialize OrchestratorAgent with all agents
-    orchestrator = OrchestratorAgent(research_agent, writing_agent, editing_agent, seo_agent, proxy_agent)
+    orchestrator = OrchestratorAgent(agents)
 
     # Create a blog post for a given topic
     topic = "The Impact of Artificial Intelligence on Education"
