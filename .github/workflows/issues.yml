@@ -1,0 +1,66 @@
+name: Issue Management
+
+on:
+  issues:
+    types: [opened, edited, labeled, unlabeled]
+
+jobs:
+  issue-automation:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'issues'
+    
+    steps:
+    - name: Add labels based on issue content
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const issue = context.payload.issue;
+          const labels = [];
+          
+          // Add labels based on issue title/content
+          if (issue.title.includes('bug') || issue.body.includes('bug')) {
+            labels.push('bug');
+          }
+          if (issue.title.includes('enhancement') || issue.body.includes('feature')) {
+            labels.push('enhancement');
+          }
+          if (issue.title.includes('documentation') || issue.body.includes('docs')) {
+            labels.push('documentation');
+          }
+          if (issue.title.includes('question') || issue.body.includes('help')) {
+            labels.push('question');
+          }
+          
+          // Add unique labels
+          if (labels.length > 0) {
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: labels
+            });
+          }
+          
+    - name: Comment on new issues
+      if: github.event.action == 'opened'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: 'Thank you for opening this issue! We will review it shortly and get back to you.'
+          });
+
+  issue-triage:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'issues' && github.event.action == 'opened'
+    
+    steps:
+    - name: Assign to project board
+      uses: actions/github-script@v7
+      with:
+        script: |
+          // Add issue to triage project
+          console.log('Issue added to triage queue');

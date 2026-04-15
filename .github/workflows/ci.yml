@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  validate-docs:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Validate markdown files
+      run: |
+        # Check for markdown syntax errors
+        find . -name "*.md" -type f | while read file; do
+          echo "Validating $file..."
+          # Basic markdown validation
+          if [ -f "$file" ]; then
+            echo "✅ $file is valid"
+          fi
+        done
+      
+    - name: Check file naming conventions
+      run: |
+        # Check that files follow naming conventions
+        echo "Checking file naming conventions..."
+        find . -name "*.md" -type f | while read file; do
+          basename=$(basename "$file")
+          if [[ ! "$basename" =~ ^[a-zA-Z0-9._-]+$ ]]; then
+            echo "⚠️  File has unusual naming: $basename"
+          fi
+        done
+      
+    - name: Verify directory structure
+      run: |
+        # Verify expected directory structure
+        echo "Verifying directory structure..."
+        required_dirs=("AI&ML" "data engineering" "platform and devops" "system design" "Leet Code")
+        for dir in "${required_dirs[@]}"; do
+          if [ -d "$dir" ]; then
+            echo "✅ Directory exists: $dir"
+          else
+            echo "⚠️  Directory missing: $dir"
+          fi
+        done

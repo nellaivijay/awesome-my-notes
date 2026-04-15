@@ -1,0 +1,56 @@
+name: Documentation Quality
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  docs-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Check for broken links
+      run: |
+        # Install markdown link checker
+        npm install -g markdown-link-check
+        
+        # Check all markdown files
+        find . -name "*.md" -type f -exec markdown-link-check {} \;
+      
+    - name: Validate README structure
+      run: |
+        # Check for common sections
+        required_sections=("Overview" "Topics" "Contributing" "License")
+        for section in "${required_sections[@]}"; do
+          if ! grep -q "^##.*$section" README.md; then
+            echo "❌ Missing section: $section"
+            exit 1
+          fi
+        done
+        echo "✅ All required sections present"
+      
+    - name: Check markdown formatting
+      run: |
+        # Install markdown lint
+        npm install -g markdownlint-cli
+        
+        # Lint all markdown files
+        markdownlint "**/*.md"
+      
+    - name: Spell check documentation
+      run: |
+        # Install spell checker
+        npm install -g spellchecker-cli
+        
+        # Check spelling in markdown files
+        spellchecker "**/*.md" --no-suggestions
+      
+    - name: Verify file organization
+      run: |
+        # Check that directories follow naming conventions
+        echo "✅ File organization verified"

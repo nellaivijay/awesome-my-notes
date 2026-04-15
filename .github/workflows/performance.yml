@@ -1,0 +1,47 @@
+name: Repository Health
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'  # Weekly on Monday
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  repo-health:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Check repository size
+      run: |
+        echo "Checking repository size..."
+        du -sh .
+        echo "Repository size check complete"
+      
+    - name: Check for orphaned files
+      run: |
+        echo "Checking for orphaned files..."
+        # Add logic to identify unreferenced files
+      
+    - name: Verify documentation coverage
+      run: |
+        echo "Checking documentation coverage..."
+        total_files=$(find . -name "*.md" | wc -l)
+        echo "Total markdown files: $total_files"
+      
+    - name: Check for duplicate content
+      run: |
+        echo "Checking for duplicate content..."
+        # Add duplicate detection logic
+      
+    - name: Generate health report
+      run: |
+        echo "Generating repository health report..."
+        echo "# Repository Health Report" > health_report.md
+        echo "- Repository size: $(du -sh . | cut -f1)" >> health_report.md
+        echo "- Markdown files: $(find . -name "*.md" | wc -l)" >> health_report.md
+        echo "- Last updated: $(date)" >> health_report.md
+        cat health_report.md
