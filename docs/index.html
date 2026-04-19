@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Awesome My Notes - Comprehensive collection of technical notes, interview materials, and learning resources covering AI, ML, Data Engineering, System Design, and Platform Engineering. Includes hands-on practice repositories.">
+    <meta name="keywords" content="technical notes, interview preparation, AI, ML, data engineering, system design, platform engineering, LeetCode, learning resources, code practice">
+    <meta name="author" content="Vijayakumar Ramdoss">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nellaivijay.github.io/awesome-my-notes/">
+    <meta property="og:title" content="Awesome My Notes - Technical Learning Hub">
+    <meta property="og:description" content="Comprehensive technical notes and hands-on practice repositories for AI/ML, Data Engineering, System Design, and Platform Engineering.">
+    <meta property="og:image" content="https://github.com/nellaivijay.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://nellaivijay.github.io/awesome-my-notes/">
+    <meta name="twitter:title" content="Awesome My Notes - Technical Learning Hub">
+    <meta name="twitter:description" content="Comprehensive technical notes and hands-on practice repositories for modern technologies.">
+    <meta name="twitter:image" content="https://github.com/nellaivijay.png">
+
+    <title>Awesome My Notes - Technical Learning Hub</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .badges a {
+            text-decoration: none;
+        }
+
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            color: #1a1a2e;
+            margin-bottom: 30px;
+            font-size: 2em;
+            border-bottom: 3px solid #e94560;
+            padding-bottom: 10px;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .topic-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #e94560;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .topic-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .topic-card ul {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .topic-card ul li {
+            padding: 8px 0;
+            color: #555;
+            font-size: 0.9em;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .topic-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .topic-card ul li:before {
+            content: "📚 ";
+        }
+
+        .repo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .repo-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .repo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .repo-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .repo-card p {
+            margin-bottom: 15px;
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        .repo-card ul {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .repo-card ul li {
+            padding: 5px 0;
+            font-size: 0.85em;
+            opacity: 0.85;
+        }
+
+        .repo-card ul li:before {
+            content: "✓ ";
+        }
+
+        .repo-card a {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .repo-card a:hover {
+            transform: scale(1.05);
+        }
+
+        .learning-path {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .learning-path h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .learning-path ol {
+            margin-left: 20px;
+            color: #333;
+        }
+
+        .learning-path li {
+            margin: 12px 0;
+            padding-left: 10px;
+            font-size: 0.95em;
+        }
+
+        .learning-path strong {
+            color: #e94560;
+        }
+
+        .learning-path a {
+            color: #667eea;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .learning-path a:hover {
+            text-decoration: underline;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #e94560 0%, #0f3460 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-card h4 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .feature-icon {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .feature h4 {
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .topic-grid, .repo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .badges {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Awesome My Notes</h1>
+            <p>Comprehensive collection of technical notes, interview materials, and learning resources covering AI, ML, Data Engineering, System Design, and Platform Engineering.</p>
+            <div class="badges">
+                <a href="https://github.com/nellaivijay/awesome-my-notes">
+                    <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg" alt="Gitmoji">
+                </a>
+                <a href="https://github.com/nellaivijay/awesome-my-notes/blob/main/LICENSE">
+                    <img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License">
+                </a>
+                <a href="https://github.com/nellaivijay/awesome-my-notes/issues">
+                    <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg" alt="Contributions">
+                </a>
+                <a href="https://github.com/nellaivijay/awesome-my-notes/stargazers">
+                    <img src="https://img.shields.io/github/stars/nellaivijay/awesome-my-notes?style=social" alt="Stars">
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Topics Covered</h2>
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <h3>🤖 AI & Machine Learning</h3>
+                    <ul>
+                        <li>ML Interview Questions</li>
+                        <li>AI Paper Summaries</li>
+                        <li>Awesome AI/ML Resources</li>
+                        <li>LLaMA & DeepSeek-R1 Guides</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>🔧 Data Engineering</h3>
+                    <ul>
+                        <li>Data Pipeline Architecture</li>
+                        <li>ETL/ELT Processes</li>
+                        <li>Data Storage Solutions</li>
+                        <li>Streaming & Batch Processing</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>🏗️ Platform & DevOps</h3>
+                    <ul>
+                        <li>Cloud Infrastructure</li>
+                        <li>Container Orchestration</li>
+                        <li>CI/CD Pipelines</li>
+                        <li>Infrastructure as Code</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>🎨 System Design</h3>
+                    <ul>
+                        <li>AI-Driven Blog Platform</li>
+                        <li>Multi-Agent Architecture</li>
+                        <li>Scalable Systems</li>
+                        <li>Distributed Concepts</li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3>💻 Algorithms & Problem Solving</h3>
+                    <ul>
+                        <li>LeetCode Solutions</li>
+                        <li>Data Structures</li>
+                        <li>Problem-Solving Approaches</li>
+                        <li>Complexity Analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🚀 Hands-on Practice Repositories</h2>
+            <p>Apply the concepts from these notes with practical, hands-on code practice repositories.</p>
+
+            <div class="repo-grid">
+                <div class="repo-card">
+                    <h3>🤖 DSPy Code Practice</h3>
+                    <p>Declarative LLM Programming</p>
+                    <ul>
+                        <li>11 progressive labs</li>
+                        <li>Chain of Thought & RAG</li>
+                        <li>AI Agent implementations</li>
+                    </ul>
+                    <a href="https://github.com/nellaivijay/dspy-code-practice">Explore</a>
+                </div>
+
+                <div class="repo-card">
+                    <h3>🧠 LLM Fine-Tuning Practice</h3>
+                    <p>Fine-tuning techniques</p>
+                    <ul>
+                        <li>PEFT & LoRA methods</li>
+                        <li>Popular models</li>
+                        <li>Advanced approaches</li>
+                    </ul>
+                    <a href="https://github.com/nellaivijay/llm-fine-tuning-practice">Explore</a>
+                </div>
+
+                <div class="repo-card">
+                    <h3>🦆 DuckDB Code Practice</h3>
+                    <p>Analytics & SQL optimization</p>
+                    <ul>
+                        <li>Fundamentals to advanced</li>
+                        <li>Performance tuning</li>
+                        <li>Data science integration</li>
+                    </ul>
+                    <a href="https://github.com/nellaivijay/duckdb-code-practice">Explore</a>
+                </div>
+
+                <div class="repo-card">
+                    <h3>⚡ Apache Spark Code Practice</h3>
+                    <p>Big data processing</p>
+                    <ul>
+                        <li>Batch & streaming</li>
+                        <li>Spark SQL & DataFrames</li>
+                        <li>MLlib integration</li>
+                    </ul>
+                    <a href="https://github.com/nellaivijay/spark-code-practice">Explore</a>
+                </div>
+
+                <div class="repo-card">
+                    <h3>🏔️ Apache Iceberg Code Practice</h3>
+                    <p>Lakehouse architecture</p>
+                    <ul>
+                        <li>Time travel</li>
+                        <li>Schema evolution</li>
+                        <li>Multi-engine integration</li>
+                    </ul>
+                    <a href="https://github.com/nellaivijay/iceberg-code-practice">Explore</a>
+                </div>
+
+                <div class="repo-card">
+                    <h3>🔧 Apache Beam Code Practice</h3>
+                    <p>Unified data processing</p>
+                    <ul>
+                        <li>Pipeline development</li>
+                        <li>IO connectors</li>
+                        <li>Deployment patterns</li>
+                    </ul>
+                    <a href="https://github.com/nellaivijay/beam-code-practice">Explore</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎓 Integrated Learning Paths</h2>
+
+            <div class="learning-path">
+                <h3>🤖 AI/ML Learning Path</h3>
+                <ol>
+                    <li><strong>Study Theory:</strong> Read through <code>ai-ml/</code> directory for ML concepts, interview questions, and research papers</li>
+                    <li><strong>Hands-on Practice:</strong> Apply concepts with <a href="https://github.com/nellaivijay/dspy-code-practice">DSPy Code Practice</a> for LLM programming</li>
+                    <li><strong>Advanced Practice:</strong> Deepen knowledge with <a href="https://github.com/nellaivijay/llm-fine-tuning-practice">LLM Fine-Tuning Practice</a></li>
+                    <li><strong>System Design:</strong> Study AI-driven system designs in <code>system-design/ai-driven-blog-writing-platform/</code></li>
+                </ol>
+            </div>
+
+            <div class="learning-path">
+                <h3>🔧 Data Engineering Learning Path</h3>
+                <ol>
+                    <li><strong>Study Theory:</strong> Read <code>data-engineering/</code> for data architecture and best practices</li>
+                    <li><strong>Hands-on Practice:</strong> Start with <a href="https://github.com/nellaivijay/duckdb-code-practice">DuckDB Code Practice</a> for analytics</li>
+                    <li><strong>Scale Up:</strong> Move to <a href="https://github.com/nellaivijay/spark-code-practice">Spark Code Practice</a> for big data</li>
+                    <li><strong>Lakehouse:</strong> Master modern architecture with <a href="https://github.com/nellaivijay/iceberg-code-practice">Iceberg Code Practice</a></li>
+                    <li><strong>Streaming:</strong> Add real-time processing with <a href="https://github.com/nellaivijay/beam-code-practice">Beam Code Practice</a></li>
+                </ol>
+            </div>
+
+            <div class="learning-path">
+                <h3>🎨 System Design Learning Path</h3>
+                <ol>
+                    <li><strong>Study Theory:</strong> Read <code>system-design/</code> for architecture patterns and case studies</li>
+                    <li><strong>Practice:</strong> Solve LeetCode problems in <code>leetcode/</code> to build algorithmic thinking</li>
+                    <li><strong>Apply:</strong> Use practice repositories to implement system designs</li>
+                    <li><strong>Platform:</strong> Study <code>platform-devops/</code> for deployment and infrastructure</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✨ Key Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">📖</div>
+                    <h4>Comprehensive Coverage</h4>
+                    <p>Topics from basics to advanced concepts</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h4>Interview Focused</h4>
+                    <p>Specific sections for interview preparation</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🛠️</div>
+                    <h4>Practical Examples</h4>
+                    <p>Real-world implementation guides</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏗️</div>
+                    <h4>System Design</h4>
+                    <p>Detailed architecture documentation</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔄</div>
+                    <h4>Regular Updates</h4>
+                    <p>Continuously updated with new content</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤝</div>
+                    <h4>Community Driven</h4>
+                    <p>Open for contributions and improvements</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Repository Statistics</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <h4>5+</h4>
+                    <p>Major Categories</p>
+                </div>
+                <div class="stat-card">
+                    <h4>15+</h4>
+                    <p>Documentation Files</p>
+                </div>
+                <div class="stat-card">
+                    <h4>6</h4>
+                    <p>Practice Repositories</p>
+                </div>
+                <div class="stat-card">
+                    <h4>22⭐</h4>
+                    <p>GitHub Stars</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🚀 Getting Started</h2>
+            <div class="learning-path">
+                <h3>How to Use This Repository</h3>
+                <ol>
+                    <li><strong>Browse by Category:</strong> Navigate through the directory structure to find topics of interest</li>
+                    <li><strong>Search for Specific Topics:</strong> Use GitHub's search functionality to find specific content</li>
+                    <li><strong>Follow Learning Paths:</strong> Start with foundational concepts and move to advanced topics</li>
+                    <li><strong>Practice:</strong> Apply knowledge with linked practice repositories</li>
+                    <li><strong>Contribute:</strong> Add your own notes, corrections, or improvements</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Made with ❤️ by the community | <a href="https://github.com/nellaivijay/awesome-my-notes">View on GitHub</a></p>
+            <p style="margin-top: 10px;">⭐ If you find this repository helpful, please consider giving it a star! ⭐</p>
+        </div>
+    </div>
+</body>
+</html>
