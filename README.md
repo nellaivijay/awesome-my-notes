@@ -1,4 +1,4 @@
-# Awesome My Notes 📚
+# Awesome My Notes 📚 - Code Practice Hub
 
 <div style="display: flex; justify-content: center;">
 
@@ -19,7 +19,21 @@
 </a>
 </div>
 
+**Your Central Hub for Technical Learning & Code Practice**
+
 A comprehensive collection of technical notes, interview materials, and learning resources covering Artificial Intelligence, Machine Learning, Data Engineering, System Design, and Platform Engineering. This repository serves as a central knowledge hub for developers, data scientists, and engineers preparing for interviews or looking to expand their technical expertise.
+
+## 🚀 Quick Access to Practice Repositories
+
+**Hands-on learning repositories with progressive labs and exercises**
+
+- [🤖 DSPy Code Practice](https://github.com/nellaivijay/dspy-code-practice) - Declarative LLM Programming
+- [🧠 LLM Fine-Tuning Practice](https://github.com/nellaivijay/llm-fine-tuning-practice) - Model Fine-Tuning
+- [🦆 DuckDB Code Practice](https://github.com/nellaivijay/duckdb-code-practice) - Analytics & SQL
+- [⚡ Apache Spark Code Practice](https://github.com/nellaivijay/spark-code-practice) - Big Data Processing
+- [🏔️ Apache Iceberg Code Practice](https://github.com/nellaivijay/iceberg-code-practice) - Lakehouse Architecture
+- [🔧 Apache Beam Code Practice](https://github.com/nellaivijay/beam-code-practice) - Data Pipelines
+- [⚙️ Scala Data Analysis Practice](https://github.com/nellaivijay/scala-dataanalysis-code-practice) - Functional Programming
 
 ## 🎯 Overview
 
@@ -72,6 +86,29 @@ Whether you're preparing for technical interviews, looking to learn new technolo
 - Data structures and algorithms
 - Problem-solving approaches
 - Time and space complexity analysis
+
+## 🎓 Integrated Learning Paths
+
+**Combine theoretical knowledge from these notes with hands-on practice**
+
+### AI/ML Learning Path
+1. **Study Theory**: Read through `ai-ml/` directory for ML concepts, interview questions, and research papers
+2. **Hands-on Practice**: Apply concepts with [dspy-code-practice](https://github.com/nellaivijay/dspy-code-practice) for LLM programming
+3. **Advanced Practice**: Deepen knowledge with [llm-fine-tuning-practice](https://github.com/nellaivijay/llm-fine-tuning-practice)
+4. **System Design**: Study AI-driven system designs in `system-design/ai-driven-blog-writing-platform/`
+
+### Data Engineering Learning Path
+1. **Study Theory**: Read `data-engineering/` for data architecture and best practices
+2. **Hands-on Practice**: Start with [duckdb-code-practice](https://github.com/nellaivijay/duckdb-code-practice) for analytics
+3. **Scale Up**: Move to [spark-code-practice](https://github.com/nellaivijay/spark-code-practice) for big data
+4. **Lakehouse**: Master modern architecture with [iceberg-code-practice](https://github.com/nellaivijay/iceberg-code-practice)
+5. **Streaming**: Add real-time processing with [beam-code-practice](https://github.com/nellaivijay/beam-code-practice)
+
+### System Design Learning Path
+1. **Study Theory**: Read `system-design/` for architecture patterns and case studies
+2. **Practice**: Solve LeetCode problems in `leetcode/` to build algorithmic thinking
+3. **Apply**: Use practice repositories to implement system designs
+4. **Platform**: Study `platform-devops/` for deployment and infrastructure
 
 ## 🚀 Getting Started
 
@@ -159,11 +196,14 @@ Types of contributions we welcome:
 
 ## 📈 Usage Statistics
 
+- **Total Practice Repositories**: 7
 - **Total Topics**: 5+ major categories
 - **Documentation Files**: 15+ markdown files
 - **System Designs**: Multi-agent architecture examples
 - **Interview Prep**: Comprehensive ML interview questions
 - **Research Coverage**: Latest AI papers and implementations
+- **Total Labs**: 50+ progressive lab exercises
+- **Technologies Covered**: 20+ modern technologies
 
 ## 🌟 Features
 
@@ -194,6 +234,23 @@ This project is licensed under the Apache-2.0 License - see the [LICENSE](LICENS
 
 ## 🔗 Related Resources
 
+### 🚀 Hands-on Practice Repositories
+**Apply the concepts from these notes with practical, hands-on code practice repositories**
+
+#### AI/ML Practice
+- [dspy-code-practice](https://github.com/nellaivijay/dspy-code-practice) - Declarative LLM Programming with DSPy
+- [llm-fine-tuning-practice](https://github.com/nellaivijay/llm-fine-tuning-practice) - LLM Fine-Tuning techniques and implementations
+
+#### Data Engineering Practice
+- [duckdb-code-practice](https://github.com/nellaivijay/duckdb-code-practice) - DuckDB Analytics and SQL optimization
+- [spark-code-practice](https://github.com/nellaivijay/spark-code-practice) - Apache Spark batch and stream processing
+- [iceberg-code-practice](https://github.com/nellaivijay/iceberg-code-practice) - Apache Iceberg lakehouse architecture
+- [beam-code-practice](https://github.com/nellaivijay/beam-code-practice) - Apache Beam unified data processing
+
+#### Programming Practice
+- [scala-dataanalysis-code-practice](https://github.com/nellaivijay/scala-dataanalysis-code-practice) - Scala for data analysis
+
+### 📚 External Resources
 - [Awesome AI/ML Resources](https://github.com/awesome-lists/awesome-machine-learning)
 - [System Design Primer](https://github.com/donnemartin/system-design-primer)
 - [LeetCode](https://leetcode.com/)
